@@ -1,0 +1,135 @@
+@charset "UTF-8";
+/**
+ * Global
+ */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.contents {
+  width: 640px;
+  margin: 100px auto 60px;
+}
+.contents_title {
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.back {
+  margin: 32px auto;
+}
+
+.hideBeforeVue {
+  visibility: hidden;
+}
+
+/**
+ * Transitions
+ */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.list-leave-to {
+  opacity: 0;
+}
+
+.list-leave-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.list-enter-from {
+  opacity: 0;
+}
+
+.list-leave-active,
+.list-move {
+  /* 移動を非常に遅くすることで動かないように見せる */
+  transition: opacity 0.3s, transform 99999s;
+}
+
+.list-enter-active {
+  transition: opacity 1s, transform 1s;
+}
+
+/**
+ * 目次ページ
+ */
+.index h1 {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+.index_link {
+  margin-bottom: 32px;
+}
+
+/**
+ * ハンバーガーボタン
+ */
+.hamburgerButton {
+  position: fixed;
+  top: 16px;
+  right: 48px;
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+}
+.hamburgerButton__open,
+.hamburgerButton__close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hamburgerButton__label {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 88px;
+  padding: 0 32px;
+  background-color: beige;
+}
+.navigation_list {
+  display: flex;
+  gap: 0 32px;
+  font-size: 18px;
+  list-style: none;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
