@@ -1,2 +1,60 @@
-hello
-comit　2022/08/29
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=640" />
+    <meta charset="UTF-8" />
+    <title>ハンバーガーボタン</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="contents">
+      <h1>見出し🌱</h1>
+      <p>
+      中身
+      </p>
+      <div id="app">
+        <button class="hamburgerButton" @click="isActive = !isActive">
+          <transition name="fade">
+          </transition>
+          <transition name="fade">
+          </transition>
+          <span class="hamburgerButton__label"
+            >{{ isActive ? "Close" : "三Menu"}}</span
+          >
+        </button>
+        <transition name="fade">
+          <div
+            class="navigationWrapper"
+            v-show="isActive"
+            style="display: none"
+          >
+            <div class="bg"></div>
+            <nav class="navigation">
+              <ul class="navigation_list">
+                <li class="navigation_item">Home</li>
+                <li class="navigation_item">About</li>
+                <li class="navigation_item">Works</li>
+                <li class="navigation_item">Contact</li>
+              </ul>
+            </nav>
+          </div>
+        </transition>
+      </div>
+    </div>
+
+    <script type="module">
+      import {
+        ref,
+        createApp,
+      } from "https://unpkg.com/vue@3.2.4/dist/vue.esm-browser.prod.js";
+      const app = createApp({
+        setup() {
+          // ハンバーガーボタンの状態です
+          const isActive = ref(false);
+          return { isActive };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
